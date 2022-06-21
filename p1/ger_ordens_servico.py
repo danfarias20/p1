@@ -26,11 +26,13 @@ class AdmOrdemServico:
             display_all()
 
         def remove():
-            db.remove_ordem(row[0])
+            db.remove_orcamento(row[0])
             display_all()
 
         def ver_concluidas():
-            db.mostrar_concluidas()
+            tv.delete(*tv.get_children())
+            for i in db.mostrar_concluidas():
+                tv.insert("", END, values=i)
 
         # cores
         co1 = "#D3D3D3"
@@ -66,6 +68,14 @@ class AdmOrdemServico:
         # botão deletar ordem
         del_btn = Button(frame_baixo, text="Excluir", command=remove, width=27)
         del_btn.place(x=8, y=45)
+
+        # botão ver concluídas
+        ver_concluidas_btn = Button(frame_baixo, text="Ver concluídas", command=ver_concluidas, width=27)
+        ver_concluidas_btn.place(x=8, y=75)
+
+        # botão ver ativas
+        ver_ativas_btn = Button(frame_baixo, text="Ver ativas", command=display_all, width=27)
+        ver_ativas_btn.place(x=8, y=105)
 
         style = ttk.Style()
         style.configure("mystyle.Treeview", rowheight=30)

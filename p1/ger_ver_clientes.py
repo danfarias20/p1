@@ -76,39 +76,6 @@ class VerClientes:
         titulo = Label(frame_cima, text="Clientes", font=(fonte, 12), bg=co2, fg="white")
         titulo.place(x=76, y=10)
 
-        # # nome do cliente
-        # nome_label = Label(frame_baixo, text="Nome: ")
-        # nome_label.place(x=5, y=10)
-        # nome_entry = Entry(frame_baixo, width=35, relief=SOLID, textvariable=nome)
-        # nome_entry.place(x=8, y=30)
-
-        # # cpf do cliente
-        # cpf_label = Label(frame_baixo, text="Cpf: ")
-        # cpf_label.place(x=5, y=60)
-        # cpf_entry = Entry(frame_baixo, width=35, relief=SOLID, textvariable=cpf)
-        # cpf_entry.place(x=8, y=80)
-
-        # # email do cliente
-        # email_label = Label(frame_baixo, text="Email: ")
-        # email_label.place(x=5, y=110)
-        # email_entry = Entry(frame_baixo, width=35, relief=SOLID, textvariable=email)
-        # email_entry.place(x=8, y=130)
-
-        # # telefone do cliente
-        # telefone_label = Label(frame_baixo, text="Telefone: ")
-        # telefone_label.place(x=5, y=160)
-        # telefone_entry = Entry(frame_baixo, width=35, relief=SOLID, textvariable=telefone)
-        # telefone_entry.place(x=8, y=180)
-
-        # # placa do carro do cliente
-        # placa_label = Label(frame_baixo, text="Placa o carro: ")
-        # placa_label.place(x=5, y=210)
-        # placa_entry = Entry(frame_baixo, width=35, relief=SOLID, textvariable=placa)
-        # placa_entry.place(x=8, y=230)
-
-        # # cargo do cliente
-        # endereco_label = Label(frame_baixo, text="Endereço: ")
-        # endereco_label.place(x=5, y=260)
         endereco_entry = Text(frame_baixo, width=26, relief=SOLID, height=5)
 
         # botão adicionar cliente
@@ -116,8 +83,8 @@ class VerClientes:
         add_btn.place(x=8, y=16)
 
         style = ttk.Style()
-        style.configure("mystyle.Treeview", font=("Calibri", 14), rowheight=47)
-        style.configure("mystyle.Treeview.Heading", font=("Calibri", 12))
+        style.configure("mystyle.Treeview", rowheight=30)
+        style.configure("mystyle.Treeview.Heading")
 
         sb = Scrollbar(frame_dir)
 

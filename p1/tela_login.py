@@ -1,7 +1,7 @@
 from tkinter import *
-from tela_gerente import *
-from tela_mecanico import *
-from tela_recepcionista import *
+from tela_gerente import TelaGerente
+from tela_mecanico import TelaMecanico
+from tela_recepcionista import TelaRecep
 from db_funcionario import *
 
 
@@ -62,7 +62,7 @@ class Tela:
         elif cargo_db[0][0] == "Recepcionista":
             tela = TelaRecep()
         elif cargo_db[0][0] == "Mecânico":
-            tela = TelaMecan()
+            tela = TelaMecanico()
         else:
             self.msg["text"] = "Usuário e/ou senha incorretos"
 

@@ -1,9 +1,8 @@
-from tkinter import messagebox
-from tela_mecanico import *
 from tkinter import ttk
-from db_ordem_orcamentos import *
-from db_funcionario import *
-from tela_login import *
+from db_ordem_orcamentos import Database
+from tkinter import *
+
+
 # cores
 co1 = "#D3D3D3"
 co2 = "#000080"
@@ -21,7 +20,7 @@ class OrdemServicoMec:
 
         def display_all():
             tv.delete(*tv.get_children())
-            for i in db.fetch_ordem_mec(cpf_mecanico):
+            for i in db.fetch_ordem():
                 tv.insert("", END, values=i)
 
         # cores
@@ -29,14 +28,7 @@ class OrdemServicoMec:
         co2 = "#000080"
         fonte = "new times roman"
 
-        nome = Tela.user()
-        senha = Tela.senha()
-
         db = Database("orcamentos.db")
-        con = sqlite3.connect("funcionarios.db")
-        cursor = con.cursor()
-        cursor.execute("SELECT cpf FROM funcionarios WHERE nome = ? and senha = ?", (nome, senha))
-        cpf_mecanico = cursor.fetchall()
 
         # janela gerenciamento de funcionários
         janela = Toplevel()

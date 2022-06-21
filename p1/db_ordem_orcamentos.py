@@ -28,18 +28,12 @@ class Database:
 
     def fetch_ordem(self):
         self.cursor.execute("SELECT * FROM orcamentos WHERE status = 'ativa'")
-        self.cursor.execute("SELECT * FROM orcamentos WHERE status = 'concluída'")
-        linhas = self.cursor.fetchall()
-        return linhas
-
-    def fetch_ordem_mec(self, cpf_mecanico):
-        self.cursor.execute("SELECT * FROM orcamentos WHERE status = 'ativa' and cpf_mecanico = ?", cpf_mecanico)
         linhas = self.cursor.fetchall()
         return linhas
 
     def insertorc(self, cpf_cliente, cpf_mecanico, valor, descricao):
-        self.cursor.execute("INSERT INTO orcamentos VALUES (NULL, ?, ?, ?, ?, 'orçamento')", (cpf_cliente, cpf_mecanico, valor,
-                                                                                       descricao))
+        self.cursor.execute("INSERT INTO orcamentos VALUES (NULL, ?, ?, ?, ?, 'orçamento')", (cpf_cliente, cpf_mecanico,
+                                                                                              valor, descricao))
         self.con.commit()
 
     def updateorc(self, id, cpf_cliente, cpf_mecanico, valor, descricao):
@@ -50,3 +44,8 @@ class Database:
     def concluir_ordem(self, id):
         self.cursor.execute("UPDATE orcamentos SET status='concluída' WHERE id=?", (id, ))
         self.con.commit()
+
+    def mostrar_concluidas(self):
+        self.cursor.execute("SELECT * FROM orcamentos WHERE status = 'concluída'")
+        linhas = self.cursor.fetchall()
+        return linhas

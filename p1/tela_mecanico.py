@@ -1,8 +1,8 @@
-from mec_cadastrar_orc import *
-from mec_ordem_serv import *
+from mec_cadastrar_orc import CadastroOrc
+from mec_ordem_serv import OrdemServicoMec
+from tkinter import *
 
-
-class TelaMecan:
+class TelaMecanico:
     def __init__(self):
         # cores
         self.co1 = "#4682B4"
