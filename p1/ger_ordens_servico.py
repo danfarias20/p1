@@ -32,27 +32,18 @@ class AdmOrdemServico:
         def ver_concluidas():
             db.mostrar_concluidas()
 
-        def ver_ativas():
-            db.mostrar_ativas()
-
         # cores
         co1 = "#D3D3D3"
         co2 = "#000080"
         fonte = "new times roman"
 
-        db = Database("ordem.db")
+        db = Database("orcamentos.db")
 
         # janela ordens de serviços
         janela = Toplevel()
         janela.title("Ordens de serviços")
         janela.geometry("1000x500")
         janela.resizable(width=False, height=False)
-
-        cpf_cli = StringVar()
-        cpf_mec = StringVar()
-        valor = StringVar()
-        descricao = StringVar()
-        status = StringVar()
 
         # criando frames
         frame_cima = Frame(janela, width=230, height=45, padx=1, bg=co2)
@@ -79,10 +70,6 @@ class AdmOrdemServico:
         # botão ver concluídas
         ver_concluidas_btn = Button(frame_baixo, text="Ver concluídas", command=ver_concluidas, width=27)
         ver_concluidas_btn.place(x=8, y=75)
-
-        # botão ver ativas
-        ver_ativas_btn = Button(frame_baixo, text="Ver ativas", command=ver_ativas, width=27)
-        ver_ativas_btn.place(x=8, y=105)
 
         style = ttk.Style()
         style.configure("mystyle.Treeview", rowheight=30)

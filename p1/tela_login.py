@@ -1,4 +1,3 @@
-import sqlite3
 from tkinter import *
 from tela_gerente import *
 from tela_mecanico import *
@@ -50,28 +49,22 @@ class Tela:
 
         self.janela_login.mainloop()
 
-    # função login
     def login(self):
         user = self.user_entry.get()
         senha = self.senha_entry.get()
         db = sqlite3.connect("funcionarios.db")
         cursor = db.cursor()
-        cursor.execute("SELECT senha FROM funcionarios WHERE nome = '{}'".format(user))
-        print("1")
-        senha_db = cursor.fetchall()
-        print("2")
-        cursor.execute("SELECT cargo FROM funcionarios WHERE senha = '{}'".format(senha_db[0][0]))
-        print("3")
-        cargo = cursor.fetchall()
-        print("4")
-        if senha == senha_db[0][0]:
-            print("5")
-            if cargo[0][0] == "Gerente":
-                print("6")
-                tela = TelaGerente()
+        cursor.execute("SELECT cargo FROM funcionarios WHERE nome = '{}' AND senha = '{}'".format(user, senha))
+        cargo_db = cursor.fetchall()
+        db.close()
+        if cargo_db[0][0] == "Gerente":
+            tela = TelaGerente()
+        elif cargo_db[0][0] == "Recepcionista":
+            tela = TelaRecep()
+        elif cargo_db[0][0] == "Mecânico":
+            tela = TelaMecanico()
         else:
             self.msg["text"] = "Usuário e/ou senha incorretos"
-        db.close()
 
 
 tela = Tela()
