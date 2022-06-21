@@ -21,7 +21,7 @@ class CadastroOrc:
 
         def display_all():
             tv.delete(*tv.get_children())
-            for i in db.fetch_orcamento():
+            for i in db.fetch_orcamentos():
                 tv.insert("", END, values=i)
 
         def insert():

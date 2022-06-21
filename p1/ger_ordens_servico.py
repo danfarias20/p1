@@ -67,10 +67,6 @@ class AdmOrdemServico:
         del_btn = Button(frame_baixo, text="Excluir", command=remove, width=27)
         del_btn.place(x=8, y=45)
 
-        # botão ver concluídas
-        ver_concluidas_btn = Button(frame_baixo, text="Ver concluídas", command=ver_concluidas, width=27)
-        ver_concluidas_btn.place(x=8, y=75)
-
         style = ttk.Style()
         style.configure("mystyle.Treeview", rowheight=30)
         style.configure("mystyle.Treeview.Heading")

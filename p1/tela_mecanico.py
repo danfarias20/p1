@@ -2,7 +2,7 @@ from mec_cadastrar_orc import *
 from mec_ordem_serv import *
 
 
-class TelaMecanico:
+class TelaMecan:
     def __init__(self):
         # cores
         self.co1 = "#4682B4"

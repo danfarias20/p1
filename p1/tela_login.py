@@ -62,9 +62,15 @@ class Tela:
         elif cargo_db[0][0] == "Recepcionista":
             tela = TelaRecep()
         elif cargo_db[0][0] == "Mecânico":
-            tela = TelaMecanico()
+            tela = TelaMecan()
         else:
             self.msg["text"] = "Usuário e/ou senha incorretos"
+
+    def user(self):
+        user = self.user_entry.get()
+
+    def senha(self):
+        senha = self.senha_entry.get()
 
 
 tela = Tela()
